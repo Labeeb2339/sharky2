@@ -218,7 +218,7 @@ We combine all these factors into a single score (0-100%):
 - **Research-grade quality** used by scientists worldwide
 
 ### 🦈 **Species-Specific Intelligence**
-- **6 major shark species** with unique behavioral models
+- **24 major shark species** with unique behavioral models
 - **Literature-based parameters** from marine biology research
 - **Seasonal patterns** and migration timing
 - **Habitat preferences** based on decades of field studies
@@ -229,49 +229,47 @@ We combine all these factors into a single score (0-100%):
 - **Uncertainty estimates** show confidence levels
 - **Peer-reviewed methods** from published scientific papers
 
-## 🌊 Species Profiles
+## 🌊 Complete Species Coverage (24 Species)
 
-### Great White Shark (*Carcharodon carcharias*)
-- **Optimal Temperature**: 18.0°C (±3.5°C tolerance)
-- **Trophic Level**: 4.5 (apex predator)
-- **Habitat**: Temperate coastal waters
-- **Depth Range**: 0-250m (optimal: 50m)
-- **Behavior**: Ambush predator, high migration
+SharkTracker Pro analyzes habitats for **24 major shark species** across **8 shark families**:
 
-### Tiger Shark (*Galeocerdo cuvier*)
-- **Optimal Temperature**: 25.0°C (±4.0°C tolerance)
-- **Trophic Level**: 4.2 (generalist predator)
-- **Habitat**: Tropical coastal waters
-- **Depth Range**: 0-350m (optimal: 100m)
-- **Behavior**: Generalist predator, coastal affinity
+### 🔥 **Lamnidae (Mackerel Sharks) - 5 Species**
+- **Great White Shark** (*Carcharodon carcharias*) - 18°C optimal
+- **Shortfin Mako Shark** (*Isurus oxyrinchus*) - 20°C optimal
+- **Longfin Mako Shark** (*Isurus paucus*) - 22°C optimal
+- **Porbeagle Shark** (*Lamna nasus*) - 12°C optimal
+- **Salmon Shark** (*Lamna ditropis*) - 10°C optimal
 
-### Bull Shark (*Carcharhinus leucas*)
-- **Optimal Temperature**: 27.0°C (±5.0°C tolerance)
-- **Trophic Level**: 4.0 (opportunistic predator)
-- **Habitat**: Estuarine and coastal waters
-- **Depth Range**: 0-150m (optimal: 30m)
-- **Behavior**: Opportunistic, freshwater tolerance
+### 🌴 **Carcharhinidae (Requiem Sharks) - 11 Species**
+- **Tiger Shark** (*Galeocerdo cuvier*) - 25°C optimal
+- **Bull Shark** (*Carcharhinus leucas*) - 27°C optimal
+- **Blacktip Shark** (*Carcharhinus limbatus*) - 26°C optimal
+- **Caribbean Reef Shark** (*Carcharhinus perezi*) - 26°C optimal
+- **Lemon Shark** (*Negaprion brevirostris*) - 25°C optimal
+- **Sandbar Shark** (*Carcharhinus plumbeus*) - 20°C optimal
+- **Spinner Shark** (*Carcharhinus brevipinna*) - 24°C optimal
+- **Dusky Shark** (*Carcharhinus obscurus*) - 19°C optimal
+- **Silky Shark** (*Carcharhinus falciformis*) - 23°C optimal
+- **Blue Shark** (*Prionace glauca*) - 16°C optimal
 
-### Great Hammerhead Shark (*Sphyrna mokarran*)
-- **Optimal Temperature**: 24.0°C (±3.0°C tolerance)
-- **Trophic Level**: 4.3 (specialized predator)
-- **Habitat**: Tropical pelagic waters
-- **Depth Range**: 0-300m (optimal: 80m)
-- **Behavior**: Specialized predator, schooling
+### 🔨 **Sphyrnidae (Hammerhead Sharks) - 4 Species**
+- **Great Hammerhead** (*Sphyrna mokarran*) - 24°C optimal
+- **Scalloped Hammerhead** (*Sphyrna lewini*) - 23°C optimal
+- **Smooth Hammerhead** (*Sphyrna zygaena*) - 18°C optimal
+- **Bonnethead Shark** (*Sphyrna tiburo*) - 24°C optimal
 
-### Shortfin Mako Shark (*Isurus oxyrinchus*)
-- **Optimal Temperature**: 20.0°C (±4.5°C tolerance)
-- **Trophic Level**: 4.6 (high-speed predator)
-- **Habitat**: Pelagic oceanic waters
-- **Depth Range**: 0-500m (optimal: 150m)
-- **Behavior**: High-speed predator, highly migratory
+### 🦈 **Other Major Families - 4 Species**
+- **Whale Shark** (*Rhincodon typus*) - Rhincodontidae - 26°C optimal
+- **Basking Shark** (*Cetorhinus maximus*) - Cetorhinidae - 14°C optimal
+- **Common Thresher** (*Alopias vulpinus*) - Alopiidae - 18°C optimal
+- **Sand Tiger Shark** (*Carcharias taurus*) - Odontaspididae - 16°C optimal
+- **Nurse Shark** (*Ginglymostoma cirratum*) - Ginglymostomatidae - 25°C optimal
 
-### Blue Shark (*Prionace glauca*)
-- **Optimal Temperature**: 16.0°C (±6.0°C tolerance)
-- **Trophic Level**: 3.8 (opportunistic pelagic)
-- **Habitat**: Open ocean waters
-- **Depth Range**: 0-400m (optimal: 200m)
-- **Behavior**: Opportunistic, highly migratory
+### 🌡️ **Temperature Range Coverage**
+- **Cold Water (8-15°C)**: Salmon Shark, Porbeagle, Basking Shark
+- **Temperate (15-20°C)**: Great White, Blue Shark, Sand Tiger, Smooth Hammerhead
+- **Warm Temperate (20-25°C)**: Mako species, Sandbar, Dusky, Thresher, Great Hammerhead
+- **Tropical (25-30°C)**: Tiger, Bull, Blacktip, Reef, Lemon, Spinner, Silky, Whale, Nurse
 
 ## 🆘 Need Help?
 

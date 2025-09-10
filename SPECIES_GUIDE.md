@@ -2,7 +2,7 @@
 
 ## 🌊 Meet the Ocean's Top Predators
 
-SharkTracker Pro analyzes habitats for **18 major shark species** from around the world! Each species has unique preferences for temperature, depth, prey, and habitat. Understanding these differences helps you predict where to find each species.
+SharkTracker Pro analyzes habitats for **24 major shark species** from around the world! Each species has unique preferences for temperature, depth, prey, and habitat. Understanding these differences helps you predict where to find each species.
 
 ---
 

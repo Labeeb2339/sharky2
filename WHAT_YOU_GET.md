@@ -125,7 +125,7 @@ Instead of guessing, you get **scientific predictions** based on:
 ### **Super Simple 3-Step Process:**
 
 #### **Step 1: Pick Your Shark** 🦈
-Choose from 18 species - each one is different!
+Choose from 24 species - each one is different!
 
 #### **Step 2: Pick Your Location** 🗺️
 - Use preset locations (California, Hawaii, Florida, etc.)
