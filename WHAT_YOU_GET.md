@@ -66,7 +66,7 @@ Instead of guessing, you get **scientific predictions** based on:
 - **Best time**: When plankton blooms occur
 - **Best places**: Maldives, Philippines, Mexico
 
-#### **And 14 more species!** Each with unique preferences
+#### **And 20 more species!** Each with unique preferences
 - **Basking Shark**: Cool water filter feeder
 - **Thresher Shark**: Tail-stunning hunter
 - **Nurse Shark**: Gentle reef dweller
@@ -78,7 +78,13 @@ Instead of guessing, you get **scientific predictions** based on:
 - **Dusky Shark**: Long-distance migrator
 - **Silky Shark**: Open ocean traveler
 - **Porbeagle Shark**: Cold water speedster
-- **And more!**
+- **Longfin Mako**: Deep-diving tropical predator
+- **Salmon Shark**: Cold-water endothermic hunter
+- **Sand Tiger**: Temperate coastal ambush predator
+- **Scalloped Hammerhead**: Schooling tropical species
+- **Smooth Hammerhead**: Migratory temperate species
+- **Bonnethead**: Shallow-water omnivorous species
+- **And more families represented!**
 
 ---
 

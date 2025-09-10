@@ -110,7 +110,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 def load_species_data():
-    """Load species information for the UI - All 18 species"""
+    """Load species information for the UI - All 24 species"""
     return {
         'great_white': {
             'name': 'Great White Shark',
@@ -309,6 +309,74 @@ def load_species_data():
             'emoji': '❄️',
             'hunting': 'Endothermic predator',
             'migration': 'Very High'
+        },
+
+        # ADDITIONAL MAJOR SPECIES (6 new species)
+        'longfin_mako': {
+            'name': 'Longfin Mako Shark',
+            'scientific': 'Isurus paucus',
+            'optimal_temp': 18,
+            'temp_range': '13-23°C',
+            'depth_range': '0-220m',
+            'habitat': 'Tropical open ocean',
+            'emoji': '⚡',
+            'hunting': 'Endothermic predator',
+            'migration': 'Very High'
+        },
+        'salmon_shark': {
+            'name': 'Salmon Shark',
+            'scientific': 'Lamna ditropis',
+            'optimal_temp': 10,
+            'temp_range': '5-15°C',
+            'depth_range': '0-255m',
+            'habitat': 'North Pacific cold waters',
+            'emoji': '🐟',
+            'hunting': 'Endothermic predator',
+            'migration': 'High'
+        },
+        'sand_tiger': {
+            'name': 'Sand Tiger Shark',
+            'scientific': 'Carcharias taurus',
+            'optimal_temp': 20,
+            'temp_range': '15-25°C',
+            'depth_range': '0-190m',
+            'habitat': 'Temperate coastal waters',
+            'emoji': '🏜️',
+            'hunting': 'Ambush predator',
+            'migration': 'Moderate'
+        },
+        'scalloped_hammerhead': {
+            'name': 'Scalloped Hammerhead',
+            'scientific': 'Sphyrna lewini',
+            'optimal_temp': 23,
+            'temp_range': '18-28°C',
+            'depth_range': '0-275m',
+            'habitat': 'Tropical coastal waters',
+            'emoji': '🔨',
+            'hunting': 'Electroreception predator',
+            'migration': 'Very High'
+        },
+        'smooth_hammerhead': {
+            'name': 'Smooth Hammerhead',
+            'scientific': 'Sphyrna zygaena',
+            'optimal_temp': 20,
+            'temp_range': '15-25°C',
+            'depth_range': '0-200m',
+            'habitat': 'Temperate coastal waters',
+            'emoji': '🔨',
+            'hunting': 'Electroreception predator',
+            'migration': 'High'
+        },
+        'bonnethead_shark': {
+            'name': 'Bonnethead Shark',
+            'scientific': 'Sphyrna tiburo',
+            'optimal_temp': 25,
+            'temp_range': '20-30°C',
+            'depth_range': '0-25m',
+            'habitat': 'Shallow warm waters',
+            'emoji': '👒',
+            'hunting': 'Benthic forager',
+            'migration': 'Low'
         }
     }
 
@@ -899,6 +967,48 @@ Contact: Advanced Marine Ecology Research
                         - 🔥 **Warm-blooded** (endothermic like tuna)
                         - ⚡ **Very fast swimmer** (built for speed)
                         """)
+                    elif species_key == 'longfin_mako':
+                        st.markdown("""
+                        - 🌴 **Tropical open ocean** (warmer than shortfin mako)
+                        - 🐟 **Large fish** like tuna and billfish
+                        - 🔥 **Warm-blooded** (endothermic predator)
+                        - 🌊 **Deep diving** (up to 220m)
+                        """)
+                    elif species_key == 'salmon_shark':
+                        st.markdown("""
+                        - 🧊 **Cold North Pacific** (Alaska to California)
+                        - 🐟 **Salmon and herring** (follows salmon runs)
+                        - 🔥 **Warm-blooded** (like great white)
+                        - 🏃 **Fast swimmer** (built for pursuit)
+                        """)
+                    elif species_key == 'sand_tiger':
+                        st.markdown("""
+                        - 🏖️ **Temperate coastal waters** (near shore)
+                        - 🐟 **Bottom fish and rays** (ambush hunter)
+                        - 😮 **Gulps air** (for buoyancy control)
+                        - 🦷 **Scary teeth** (but relatively docile)
+                        """)
+                    elif species_key == 'scalloped_hammerhead':
+                        st.markdown("""
+                        - 🌴 **Tropical coastal waters** (warm seas)
+                        - 🐟 **Schooling fish and squid** (group hunter)
+                        - 👥 **Forms large schools** (hundreds together!)
+                        - 🔨 **Scalloped head** (distinctive shape)
+                        """)
+                    elif species_key == 'smooth_hammerhead':
+                        st.markdown("""
+                        - 🌊 **Temperate coastal waters** (cooler than scalloped)
+                        - 🐟 **Sardines and anchovies** (schooling fish)
+                        - 🔨 **Smooth head edge** (no scallops)
+                        - 🏊 **Strong swimmer** (long migrations)
+                        """)
+                    elif species_key == 'bonnethead_shark':
+                        st.markdown("""
+                        - 🏖️ **Shallow warm waters** (like Florida)
+                        - 🦀 **Crabs and shrimp** (bottom feeder)
+                        - 🌱 **Eats seagrass** (only omnivorous shark!)
+                        - 👒 **Bonnet-shaped head** (smallest hammerhead)
+                        """)
                     else:
                         # Fallback for any missing species
                         st.markdown(f"""
@@ -973,6 +1083,18 @@ Contact: Advanced Marine Ecology Research
                         st.info("✨ Silky Sharks have the smoothest skin of any shark - like touching silk!")
                     elif species_key == 'porbeagle_shark':
                         st.info("🔥 Porbeagle Sharks are warm-blooded and can heat their bodies 20°F above water temperature!")
+                    elif species_key == 'longfin_mako':
+                        st.info("🌊 Longfin Makos have the longest pectoral fins of any mako shark - perfect for deep ocean gliding!")
+                    elif species_key == 'salmon_shark':
+                        st.info("🐟 Salmon Sharks can eat up to 25% of their body weight in salmon during feeding season!")
+                    elif species_key == 'sand_tiger':
+                        st.info("😮 Sand Tiger Sharks gulp air at the surface to control their buoyancy - like a built-in life jacket!")
+                    elif species_key == 'scalloped_hammerhead':
+                        st.info("👥 Scalloped Hammerheads form the largest shark schools on Earth - sometimes over 500 sharks together!")
+                    elif species_key == 'smooth_hammerhead':
+                        st.info("🔨 Smooth Hammerheads can migrate over 4,000 miles - one of the longest shark migrations recorded!")
+                    elif species_key == 'bonnethead_shark':
+                        st.info("🌱 Bonnethead Sharks are the only omnivorous sharks - they actually digest seagrass for nutrients!")
                     else:
                         st.info("🦈 Sharks have been around for over 400 million years - they're older than trees!")
                 

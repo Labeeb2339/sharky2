@@ -13,13 +13,20 @@
 - Updated within hours of satellite passes
 
 ### 🦈 **Multi-Species Shark Analysis**
-Analyze habitats for 6 major shark species:
+Analyze habitats for 24 major shark species including:
 - **Great White Shark** - Apex coastal predator
 - **Tiger Shark** - Tropical generalist hunter
 - **Bull Shark** - Estuarine opportunist
 - **Great Hammerhead** - Specialized ray hunter
 - **Shortfin Mako** - High-speed oceanic predator
 - **Blue Shark** - Long-distance ocean wanderer
+- **Longfin Mako** - Deep-diving tropical predator
+- **Salmon Shark** - Cold-water endothermic hunter
+- **Sand Tiger** - Temperate coastal ambush predator
+- **Scalloped Hammerhead** - Schooling tropical species
+- **Smooth Hammerhead** - Migratory temperate species
+- **Bonnethead** - Shallow-water omnivorous species
+- **And 12 more species** covering all major shark families
 
 ### 🧠 **Intelligent Habitat Modeling**
 - **Temperature Preferences** - Species-specific thermal requirements
@@ -63,7 +70,7 @@ streamlit run app.py
 
 ## 🦈 Shark Species Profiles
 
-SharkTracker Pro analyzes habitats for **18 major shark species** worldwide:
+SharkTracker Pro analyzes habitats for **24 major shark species** worldwide:
 
 ### 🔥 **Great White Shark** (*Carcharodon carcharias*)
 - **Habitat**: Temperate coastal waters (12-24°C)
