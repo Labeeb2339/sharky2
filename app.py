@@ -12,8 +12,8 @@ import numpy as np
 from datetime import datetime, date
 import json
 import os
-from enhanced_shark_framework import PredictionEngine
-from shark_analysis_visualization import HabitatAnalyzer, ReportGenerator
+from automatic_nasa_framework import AutomaticNASAFramework
+# from shark_analysis_visualization import HabitatAnalyzer, ReportGenerator
 
 # Configure Streamlit page
 st.set_page_config(
@@ -445,27 +445,31 @@ def main():
     if run_analysis:
         with st.spinner(f"🔄 Analyzing {species_info['name']} habitat..."):
             try:
-                # Initialize prediction engine
-                engine = PredictionEngine(species=selected_species)
-                
+                # Initialize NASA framework
+                framework = AutomaticNASAFramework(species=selected_species)
+
+                # Define study area
+                study_area = {
+                    'name': f'{selected_location} - {species_info["name"]} Analysis',
+                    'bounds': [lon_min, lat_min, lon_max, lat_max],
+                    'description': f'Habitat analysis for {species_info["name"]}'
+                }
+
+                # Date range
+                date_range = [start_date.strftime('%Y-%m-%d'), end_date.strftime('%Y-%m-%d')]
+
                 # Get environmental data
-                lat_range = (lat_min, lat_max)
-                lon_range = (lon_min, lon_max)
-                date_range = (start_date.strftime('%Y-%m-%d'), end_date.strftime('%Y-%m-%d'))
-                
-                # Fetch data
-                sst_data = engine.data_fetcher.fetch_modis_sst(lat_range, lon_range, date_range)
-                chl_data = engine.data_fetcher.fetch_modis_chlorophyll(lat_range, lon_range, date_range)
-                environmental_data = {'sst': sst_data, 'chlorophyll': chl_data}
-                
+                environmental_data, real_data = framework.auto_download_nasa_data(study_area, date_range)
+
                 # Predict habitat
-                results = engine.predict_habitat_suitability(environmental_data)
+                results = framework.advanced_habitat_prediction(environmental_data)
                 
-                # Calculate statistics
-                hsi_flat = np.array(results['hsi']).flatten()
-                mean_hsi = np.mean(hsi_flat)
-                max_hsi = np.max(hsi_flat)
-                min_hsi = np.min(hsi_flat)
+                # Extract statistics from results
+                stats = results['statistics']
+                mean_hsi = stats['mean_hsi']
+                max_hsi = stats['max_hsi']
+                min_hsi = stats['min_hsi']
+                suitable_cells = stats['suitable_cells']
                 
                 # Display metrics
                 st.success("✅ Analysis Complete!")
@@ -478,7 +482,7 @@ def main():
                 with col3:
                     st.metric("Min HSI", f"{min_hsi:.3f}")
                 with col4:
-                    st.metric("Grid Points", len(hsi_flat))
+                    st.metric("Suitable Cells", suitable_cells)
                 
                 # Create tabs for different visualizations
                 tab1, tab2, tab3, tab4 = st.tabs(["🗺️ Habitat Map", "📊 Distribution", "🥧 Quality Breakdown", "📋 Detailed Report"])
@@ -555,7 +559,7 @@ def main():
         - **Professional reports** for research and conservation
         
         ### 📋 How to Use:
-        1. **🦈 Select your shark species** from the dropdown (Great White, Tiger, Bull)
+        1. **🦈 Select your shark species** from the dropdown (6 species available)
         2. **📍 Choose a study location** from preset options (California, Florida, Australia, etc.)
         3. **🔧 Optionally modify coordinates** for custom areas
         4. **📅 Set your time period** for analysis

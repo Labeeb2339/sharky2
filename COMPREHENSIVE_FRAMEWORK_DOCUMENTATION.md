@@ -266,11 +266,162 @@ response = requests.get(nasa_api_url, headers=headers)
 4. **Spatial Validation** (Known hotspot identification)
 5. **Uncertainty Quantification** (Error propagation analysis)
 
-#### **Known Limitations**
-- **Ground Truth Data**: Limited real shark telemetry for validation
-- **Climate Variability**: Long-term climate change effects
-- **Prey Distribution**: Simplified trophic relationships
-- **Human Impacts**: Fishing pressure not explicitly modeled
+#### **Current Limitations & Required Enhancements**
+
+##### **🌊 FRONTAL ZONE DETECTION (Current: 7/10)**
+**Current Issues:**
+- ❌ **Simplified Gradients**: Basic Sobel operators only
+- ❌ **No Temporal Persistence**: Fronts tracked for single time point
+- ❌ **Missing Multi-scale Analysis**: Single spatial scale only
+- ❌ **No Edge Detection**: No Canny or advanced edge detection
+
+**Required Enhancements:**
+- ✅ **Multi-scale Gradient Analysis**: 3-5 different spatial scales
+- ✅ **Canny Edge Detection**: Proper front boundary identification
+- ✅ **Temporal Persistence Tracking**: 3-7 day front persistence
+- ✅ **Non-maximum Suppression**: Edge thinning algorithms
+- ✅ **Front Strength Classification**: Weak/moderate/strong fronts
+
+##### **🌊 DEPTH MODELING (Current: 8/10)**
+**Current Issues:**
+- ❌ **No Diel Vertical Migration**: Species move up/down daily
+- ❌ **No Thermocline Effects**: Temperature layers ignored
+- ❌ **Simplified Depth Response**: Linear preference curves
+- ❌ **No Pressure Effects**: Deep-water pressure tolerance missing
+
+**Required Enhancements:**
+- ✅ **Diel Migration Patterns**: 24-hour depth movement cycles
+- ✅ **Thermocline Interaction**: Temperature gradient effects
+- ✅ **Oxygen Minimum Zones**: 200-1000m oxygen depletion
+- ✅ **Pressure Tolerance Limits**: Species-specific depth maxima
+- ✅ **Vertical Temperature Profiles**: 3D temperature structure
+
+##### **🧮 INTEGRATION METHOD (Current: 8/10)**
+**Current Issues:**
+- ❌ **Fixed Weights**: Weights not empirically validated
+- ❌ **No Synergistic Effects**: Factors treated independently
+- ❌ **Linear Interactions**: No multiplicative factor interactions
+
+**Required Enhancements:**
+- ✅ **Empirically Validated Weights**: From telemetry data analysis
+- ✅ **Synergistic Interactions**: Temperature×Productivity synergy
+- ✅ **Non-linear Responses**: Threshold effects and saturation
+- ✅ **Species-specific Weights**: Different factor importance per species
+- ✅ **Adaptive Weighting**: Weights change with environmental conditions
+
+##### **🐟 ECOLOGICAL FACTORS (Missing)**
+**Prey Distribution:**
+- ❌ **No Explicit Prey Models**: Prey species distribution missing
+- ❌ **No Predator-Prey Dynamics**: Population interactions ignored
+- ❌ **No Prey Size Structure**: Age/size class distributions missing
+
+**Required Enhancements:**
+- ✅ **Prey Species Models**: Fish, seal, ray distribution models
+- ✅ **Predator-Prey Ratios**: Optimal predator:prey densities
+- ✅ **Prey Aggregation Patterns**: Schooling and seasonal movements
+- ✅ **Size-selective Predation**: Prey size preference modeling
+
+**Predator Avoidance:**
+- ❌ **No Shark-Shark Interactions**: Competitive exclusion missing
+- ❌ **No Apex Predator Effects**: Killer whale avoidance missing
+
+**Required Enhancements:**
+- ✅ **Interspecific Competition**: Shark species interactions
+- ✅ **Predator Avoidance Zones**: Killer whale presence effects
+- ✅ **Territorial Behavior**: Dominant species exclusion zones
+
+##### **🏭 HUMAN IMPACTS (Missing)**
+**Fishing Pressure:**
+- ❌ **No Fishing Mortality**: Commercial/recreational fishing ignored
+- ❌ **No Gear Interactions**: Bycatch and entanglement missing
+- ❌ **No Fishing Ground Avoidance**: Behavioral responses missing
+
+**Required Enhancements:**
+- ✅ **Fishing Effort Maps**: Commercial fishing intensity
+- ✅ **Bycatch Risk Models**: Gear-specific mortality rates
+- ✅ **Behavioral Avoidance**: Fishing ground displacement effects
+- ✅ **Marine Protected Areas**: Sanctuary effect modeling
+
+**Boat Traffic:**
+- ❌ **No Vessel Disturbance**: Shipping lane effects missing
+- ❌ **No Acoustic Pollution**: Engine noise impacts ignored
+
+**Required Enhancements:**
+- ✅ **Shipping Density Maps**: Vessel traffic intensity
+- ✅ **Acoustic Disturbance Zones**: Engine noise propagation
+- ✅ **Behavioral Displacement**: Avoidance response modeling
+
+##### **🌱 SEASONAL BEHAVIOR (Missing)**
+**Breeding Cycles:**
+- ❌ **No Pupping Areas**: Nursery habitat identification missing
+- ❌ **No Mating Aggregations**: Breeding site preferences ignored
+- ❌ **No Reproductive Timing**: Seasonal breeding cycles missing
+
+**Required Enhancements:**
+- ✅ **Nursery Habitat Models**: Shallow, protected pupping areas
+- ✅ **Mating Aggregation Sites**: Species-specific breeding locations
+- ✅ **Reproductive Seasonality**: Monthly breeding probability
+- ✅ **Maternal Behavior**: Post-birth habitat changes
+
+##### **🌊 OCEAN DYNAMICS (Missing)**
+**Current Systems:**
+- ❌ **No Current Effects**: Water movement ignored
+- ❌ **No Upwelling Dynamics**: Nutrient upwelling missing
+- ❌ **No Eddy Effects**: Mesoscale circulation ignored
+
+**Required Enhancements:**
+- ✅ **Current Velocity Fields**: 3D ocean circulation
+- ✅ **Upwelling Intensity Maps**: Coastal upwelling strength
+- ✅ **Eddy Tracking**: Mesoscale circulation features
+- ✅ **Transport Modeling**: Passive drift and active swimming
+
+##### **💧 WATER QUALITY (Missing)**
+**Chemical Parameters:**
+- ❌ **No Dissolved Oxygen**: Critical for deep-water species
+- ❌ **No Salinity Effects**: Important for Bull sharks
+- ❌ **No pH Effects**: Ocean acidification impacts
+- ❌ **No Turbidity**: Water clarity effects on hunting
+
+**Required Enhancements:**
+- ✅ **Oxygen Concentration Maps**: 3D dissolved oxygen fields
+- ✅ **Salinity Gradients**: Freshwater influence modeling
+- ✅ **pH Distribution**: Ocean acidification effects
+- ✅ **Turbidity Models**: Water clarity and visibility
+- ✅ **Pollution Gradients**: Contaminant concentration effects
+
+##### **🌙 TEMPORAL FACTORS (Missing)**
+**Lunar Cycles:**
+- ❌ **No Moon Phase Effects**: Lunar feeding patterns ignored
+- ❌ **No Tidal Effects**: Tidal cycle influences missing
+
+**Weather Patterns:**
+- ❌ **No Storm Effects**: Hurricane/typhoon impacts ignored
+- ❌ **No Wind Effects**: Surface mixing and wave action missing
+
+**Required Enhancements:**
+- ✅ **Lunar Phase Modeling**: 28-day lunar cycle effects
+- ✅ **Tidal Amplitude Effects**: Spring/neap tide influences
+- ✅ **Storm Track Integration**: Hurricane path and intensity
+- ✅ **Wind-driven Mixing**: Surface layer turbulence effects
+
+##### **📊 VALIDATION & CALIBRATION (Missing)**
+**Ground Truth Data:**
+- ❌ **No Telemetry Validation**: No comparison with real shark tracks
+- ❌ **No Fisheries Data**: No comparison with catch records
+- ❌ **No Acoustic Data**: No comparison with acoustic detections
+
+**Statistical Validation:**
+- ❌ **No Cross-validation**: No independent dataset testing
+- ❌ **No Sensitivity Analysis**: Parameter uncertainty not explored
+- ❌ **No Model Selection**: No comparison of alternative models
+
+**Required Enhancements:**
+- ✅ **Telemetry Data Integration**: Satellite tag validation
+- ✅ **Fisheries CPUE Validation**: Catch-per-unit-effort comparison
+- ✅ **Acoustic Array Validation**: Detection probability modeling
+- ✅ **Cross-validation Framework**: K-fold validation protocols
+- ✅ **Monte Carlo Sensitivity**: Parameter uncertainty propagation
+- ✅ **Model Comparison**: AIC/BIC model selection criteria
 
 ---
 
