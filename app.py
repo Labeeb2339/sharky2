@@ -485,7 +485,7 @@ def main():
                     st.metric("Suitable Cells", suitable_cells)
                 
                 # Create tabs for different visualizations
-                tab1, tab2, tab3, tab4 = st.tabs(["🗺️ Habitat Map", "📊 Distribution", "🥧 Quality Breakdown", "📋 Detailed Report"])
+                tab1, tab2, tab3, tab4, tab5 = st.tabs(["🗺️ Habitat Map", "📊 Distribution", "🥧 Quality Breakdown", "📋 Detailed Report", "🌊 Simple Summary"])
                 
                 with tab1:
                     st.plotly_chart(create_habitat_map(results, species_info), use_container_width=True)
@@ -596,6 +596,143 @@ Contact: Advanced Marine Ecology Research
                         file_name=f"shark_habitat_report_{selected_species}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
                         mime="text/plain"
                     )
+
+                with tab5:
+                    # User-friendly simple summary
+                    st.subheader("🌊 What Does This Mean? (Simple Explanation)")
+
+                    # Get basic stats
+                    hsi_flat = np.array(results['hsi']).flatten()
+                    mean_hsi = np.mean(hsi_flat)
+                    excellent_percent = (np.sum(hsi_flat > 0.8) / len(hsi_flat)) * 100
+                    good_percent = (np.sum((hsi_flat > 0.6) & (hsi_flat <= 0.8)) / len(hsi_flat)) * 100
+
+                    # Overall assessment
+                    if mean_hsi > 0.7:
+                        overall_rating = "🟢 **EXCELLENT**"
+                        overall_message = f"This is a fantastic area for {species_info['name']}! The conditions are nearly perfect."
+                    elif mean_hsi > 0.5:
+                        overall_rating = "🟡 **GOOD**"
+                        overall_message = f"This is a good area for {species_info['name']}. You'd likely find them here regularly."
+                    elif mean_hsi > 0.3:
+                        overall_rating = "🟠 **MODERATE**"
+                        overall_message = f"This area is okay for {species_info['name']}. They might visit occasionally."
+                    else:
+                        overall_rating = "🔴 **POOR**"
+                        overall_message = f"This area is not ideal for {species_info['name']}. They would rarely be found here."
+
+                    # Display simple summary
+                    st.markdown(f"""
+                    ### 🎯 **Overall Habitat Rating: {overall_rating}**
+
+                    {overall_message}
+
+                    ---
+
+                    ### 📊 **Quick Stats:**
+                    - **🏆 Excellent Habitat**: {excellent_percent:.1f}% of the area
+                    - **✅ Good Habitat**: {good_percent:.1f}% of the area
+                    - **📍 Best Spots**: {np.sum(hsi_flat > 0.6)} locations found
+
+                    ### 🦈 **What This Shark Likes:**
+                    """)
+
+                    # Species-specific preferences in simple language
+                    species_key = selected_species
+                    if species_key == 'great_white':
+                        st.markdown("""
+                        - 🌡️ **Cool water** (like California coast in fall)
+                        - 🦭 **Areas with seals** (their favorite food!)
+                        - 🌊 **Temperature boundaries** where different waters meet
+                        - 🏔️ **Not too deep** - they hunt near the surface
+                        """)
+                    elif species_key == 'tiger_shark':
+                        st.markdown("""
+                        - 🌴 **Warm tropical water** (like Hawaii year-round)
+                        - 🐢 **Everything is food** - they eat almost anything!
+                        - 🏝️ **Near islands and reefs**
+                        - 🌙 **More active at night**
+                        """)
+                    elif species_key == 'bull_shark':
+                        st.markdown("""
+                        - 🔥 **Very warm water** (like Florida in summer)
+                        - 🏞️ **Shallow areas** - they love river mouths!
+                        - 🌊 **Can handle fresh water** (unique among sharks)
+                        - 🦐 **Lots of small fish and rays** to eat
+                        """)
+                    elif species_key == 'hammerhead':
+                        st.markdown("""
+                        - 🌺 **Tropical warm water** (like Bahamas in winter)
+                        - 🗂️ **Sandy bottoms** where rays hide
+                        - 🔨 **Uses unique head shape** to hunt rays
+                        - 👥 **Often found in groups** (schooling behavior)
+                        """)
+                    elif species_key == 'mako':
+                        st.markdown("""
+                        - 🌊 **Open ocean** (far from shore)
+                        - ⚡ **Fast-moving water** with currents
+                        - 🐟 **Big fast fish** like tuna (they're speed hunters!)
+                        - 🌡️ **Moderate temperatures** (not too hot or cold)
+                        """)
+                    elif species_key == 'blue_shark':
+                        st.markdown("""
+                        - ❄️ **Cool water** (like North Atlantic)
+                        - 🌊 **Deep open ocean** (they travel huge distances)
+                        - 🦑 **Squid and small fish** (not picky eaters)
+                        - 🧭 **Follow ocean currents** like highways
+                        """)
+                    else:
+                        # For new species, show general info
+                        st.markdown(f"""
+                        - 🌡️ **Temperature**: {results.get('optimal_temp', 'Variable')}°C preferred
+                        - 🏔️ **Depth**: {results.get('depth_range', 'Variable')} meters
+                        - 🍽️ **Food**: {results.get('prey_type', 'Various prey species')}
+                        - 🏠 **Habitat**: {results.get('habitat_type', 'Species-specific preferences')}
+                        """)
+
+                    st.markdown("""
+                    ---
+
+                    ### 🤔 **What Should I Do With This Information?**
+
+                    **🎓 If you're a student:**
+                    - Use this for science projects about marine life
+                    - Compare different locations and seasons
+                    - Learn how ocean conditions affect sea life
+
+                    **🏊‍♂️ If you're planning ocean activities:**
+                    - Remember: habitat suitability ≠ shark danger
+                    - Always follow local safety guidelines
+                    - Respect marine life and their environment
+
+                    **🔬 If you're doing research:**
+                    - Use the detailed tabs for scientific data
+                    - Export reports for further analysis
+                    - Compare multiple species and locations
+
+                    **🌊 If you love marine life:**
+                    - Learn about shark behavior and ecology
+                    - Support marine conservation efforts
+                    - Share knowledge about these amazing predators!
+                    """)
+
+                    # Fun facts section
+                    st.markdown("### 🎉 **Fun Shark Facts:**")
+
+                    if species_key == 'great_white':
+                        st.info("🦈 Great Whites can detect a single drop of blood in 25 gallons of water!")
+                    elif species_key == 'tiger_shark':
+                        st.info("🐅 Tiger Sharks are called the 'wastebasket of the sea' because they eat almost anything!")
+                    elif species_key == 'bull_shark':
+                        st.info("🏞️ Bull Sharks can swim up rivers and have been found 2,500 miles up the Amazon!")
+                    elif species_key == 'hammerhead':
+                        st.info("🔨 Hammerhead's weird head shape gives them 360-degree vision!")
+                    elif species_key == 'mako':
+                        st.info("⚡ Mako Sharks can swim up to 45 mph - faster than most boats!")
+                    elif species_key == 'blue_shark':
+                        st.info("🌍 Blue Sharks migrate up to 5,500 miles - that's like swimming across the Atlantic!")
+                    else:
+                        st.info("🦈 Sharks have been around for over 400 million years - they're older than trees!")
                 
             except Exception as e:
                 st.error(f"❌ Analysis failed: {str(e)}")
@@ -612,16 +749,17 @@ Contact: Advanced Marine Ecology Research
         
         ### 🚀 Features:
         - **Real-time NASA satellite data** (MODIS, VIIRS)
-        - **6 shark species models** (Great White, Tiger, Bull, Hammerhead, Mako, Blue)
+        - **18 shark species models** (Great White, Tiger, Bull, Hammerhead, Mako, Blue, Whale, Basking, Thresher, Nurse, Reef, Lemon, Blacktip, Sandbar, Spinner, Dusky, Silky, Porbeagle)
         - **Bathymetry integration** (GEBCO/ETOPO depth data)
         - **Species differentiation** based on ecological parameters
         - **Interactive habitat maps** with zoom and pan
         - **Temporal analysis** capabilities
         - **Statistical analysis** and quality metrics
         - **Professional reports** for research and conservation
-        
+        - **User-friendly summaries** in plain language
+
         ### 📋 How to Use:
-        1. **🦈 Select your shark species** from the dropdown (6 species available)
+        1. **🦈 Select your shark species** from the dropdown (18 species available)
         2. **📍 Choose a study location** from preset options (California, Florida, Australia, etc.)
         3. **🔧 Optionally modify coordinates** for custom areas
         4. **📅 Set your time period** for analysis

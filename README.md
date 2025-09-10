@@ -63,6 +63,8 @@ streamlit run app.py
 
 ## 🦈 Shark Species Profiles
 
+SharkTracker Pro analyzes habitats for **18 major shark species** worldwide:
+
 ### 🔥 **Great White Shark** (*Carcharodon carcharias*)
 - **Habitat**: Temperate coastal waters (12-24°C)
 - **Hunting**: Ambush predator targeting seals and large fish

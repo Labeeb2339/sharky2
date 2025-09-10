@@ -2,7 +2,7 @@
 
 ## 🌊 Meet the Ocean's Top Predators
 
-SharkTracker Pro analyzes habitats for 6 major shark species. Each species has unique preferences for temperature, depth, prey, and habitat. Understanding these differences helps you predict where to find each species.
+SharkTracker Pro analyzes habitats for **18 major shark species** from around the world! Each species has unique preferences for temperature, depth, prey, and habitat. Understanding these differences helps you predict where to find each species.
 
 ---
 
@@ -256,6 +256,13 @@ SharkTracker Pro analyzes habitats for 6 major shark species. Each species has u
 | **Hammerhead** | 21-27°C | 0-300m | Tropical pelagic | Rays | Winter |
 | **Mako** | 15-25°C | 0-500m | Open ocean | Tuna, billfish | Summer |
 | **Blue** | 10-22°C | 0-400m | Cool open ocean | Squid, small fish | Summer |
+| **Whale** | 21-30°C | 0-200m | Tropical surface | Plankton | Year-round |
+| **Basking** | 8-20°C | 0-200m | Temperate surface | Zooplankton | Summer |
+| **Thresher** | 14-24°C | 0-500m | Temperate pelagic | Schooling fish | Summer |
+| **Nurse** | 22-30°C | 0-75m | Tropical reef | Bottom creatures | Year-round |
+| **Reef** | 24-30°C | 0-100m | Coral reef | Reef fish | Year-round |
+| **Lemon** | 20-30°C | 0-90m | Mangrove coastal | Medium fish | Spring-Summer |
+| **Blacktip** | 20-30°C | 0-100m | Shallow coastal | Schooling fish | Spring-Fall |
 
 ---
 
@@ -279,6 +286,52 @@ Use SharkTracker Pro to compare:
 - **Same species** across different seasons
 - **Different locations** for the same species
 - **Historical changes** in habitat suitability
+
+---
+
+## 🌟 Additional Species Available
+
+### 🐋 **Whale Shark** (*Rhincodon typus*)
+- **Habitat**: Warm tropical waters (21-30°C)
+- **Hunting**: Filter feeds on plankton and small fish
+- **Behavior**: Gentle giant, follows plankton blooms
+- **Best Locations**: Maldives, Philippines, Mexico
+
+### 🦈 **Basking Shark** (*Cetorhinus maximus*)
+- **Habitat**: Cool temperate waters (8-20°C)
+- **Hunting**: Filter feeds on zooplankton
+- **Behavior**: Highly migratory, follows food
+- **Best Locations**: Scotland, Ireland, New England
+
+### 🌊 **Thresher Shark** (*Alopias vulpinus*)
+- **Habitat**: Temperate pelagic waters (14-24°C)
+- **Hunting**: Uses tail to stun schooling fish
+- **Behavior**: Deep diving, unique hunting style
+- **Best Locations**: California, Philippines, Egypt
+
+### 🏝️ **Nurse Shark** (*Ginglymostoma cirratum*)
+- **Habitat**: Shallow tropical reefs (22-30°C)
+- **Hunting**: Suction feeds on bottom creatures
+- **Behavior**: Docile, stays near reefs
+- **Best Locations**: Caribbean, Florida Keys, Bahamas
+
+### 🌴 **Caribbean Reef Shark** (*Carcharhinus perezi*)
+- **Habitat**: Coral reefs (24-30°C)
+- **Hunting**: Active reef predator
+- **Behavior**: Territorial around reefs
+- **Best Locations**: Caribbean islands, Bahamas
+
+### 🍋 **Lemon Shark** (*Negaprion brevirostris*)
+- **Habitat**: Shallow mangrove areas (20-30°C)
+- **Hunting**: Active predator in shallow water
+- **Behavior**: Uses mangroves as nurseries
+- **Best Locations**: Bahamas, Florida, Caribbean
+
+### ⚫ **Blacktip Shark** (*Carcharhinus limbatus*)
+- **Habitat**: Shallow tropical coasts (20-30°C)
+- **Hunting**: Fast pursuit of schooling fish
+- **Behavior**: Often seen jumping out of water
+- **Best Locations**: Florida, Gulf of Mexico, Caribbean
 
 ---
 

@@ -171,7 +171,288 @@ class AutomaticNASAFramework:
                 'prey_size_preference': 'small_fish',  # Squid, small fish
                 'hunting_strategy': 'opportunistic_pelagic',
                 'metabolic_rate': 'low',
-                'habitat_specificity': 'open_ocean'
+                'habitat_specificity': 'open_ocean',
+                'prey_preferences': ['squid', 'small_fish', 'krill'],
+                'diel_migration': 50,
+                'thermoregulation': 0.2,
+                'feeding_efficiency': 0.6,
+                'thermocline_affinity': 0.8
+            },
+            'whale_shark': {
+                'name': 'Whale Shark',
+                'scientific': 'Rhincodon typus',
+                'optimal_temp': 26.0,      # Sequeira et al. 2014
+                'temp_tolerance': 4.0,
+                'temp_range': (21.0, 30.0),
+                'thermal_coeff': 0.05,
+                'trophic_level': 2.1,      # Filter feeder
+                'productivity_threshold': 0.9,  # Needs high plankton productivity
+                'frontal_affinity': 0.8,   # High affinity for productive fronts
+                'depth_preference': (0, 200),  # Surface feeder
+                'coastal_affinity': 0.6,   # Moderate coastal preference
+                'migration_tendency': 0.9, # Highly migratory
+                'prey_size_preference': 'plankton',  # Plankton, small fish
+                'hunting_strategy': 'filter_feeder',
+                'metabolic_rate': 'low',
+                'habitat_specificity': 'tropical_pelagic',
+                'prey_preferences': ['plankton', 'krill', 'fish_eggs'],
+                'diel_migration': 100,  # Deep diving
+                'thermoregulation': 0.4,
+                'feeding_efficiency': 0.9,
+                'thermocline_affinity': 0.7
+            },
+            'basking_shark': {
+                'name': 'Basking Shark',
+                'scientific': 'Cetorhinus maximus',
+                'optimal_temp': 14.0,      # Sims et al. 2005
+                'temp_tolerance': 5.0,
+                'temp_range': (8.0, 20.0),
+                'thermal_coeff': 0.06,
+                'trophic_level': 2.0,      # Filter feeder
+                'productivity_threshold': 0.8,  # Needs high zooplankton
+                'frontal_affinity': 0.9,   # Very high frontal affinity
+                'depth_preference': (0, 200),  # Surface feeder
+                'coastal_affinity': 0.5,   # Moderate coastal preference
+                'migration_tendency': 0.95, # Extremely migratory
+                'prey_size_preference': 'zooplankton',
+                'hunting_strategy': 'filter_feeder',
+                'metabolic_rate': 'low',
+                'habitat_specificity': 'temperate_pelagic',
+                'prey_preferences': ['zooplankton', 'copepods', 'krill'],
+                'diel_migration': 80,
+                'thermoregulation': 0.3,
+                'feeding_efficiency': 0.8,
+                'thermocline_affinity': 0.9
+            },
+            'thresher_shark': {
+                'name': 'Common Thresher Shark',
+                'scientific': 'Alopias vulpinus',
+                'optimal_temp': 19.0,      # Cartamil et al. 2010
+                'temp_tolerance': 4.0,
+                'temp_range': (14.0, 24.0),
+                'thermal_coeff': 0.07,
+                'trophic_level': 4.2,
+                'productivity_threshold': 0.7,
+                'frontal_affinity': 0.8,   # High frontal affinity
+                'depth_preference': (0, 500),  # Deep diving capability
+                'coastal_affinity': 0.4,   # Low coastal preference
+                'migration_tendency': 0.8, # High migratory
+                'prey_size_preference': 'schooling_fish',
+                'hunting_strategy': 'tail_stunning',
+                'metabolic_rate': 'high',
+                'habitat_specificity': 'temperate_pelagic',
+                'prey_preferences': ['sardines', 'anchovies', 'mackerel'],
+                'diel_migration': 200,  # Deep vertical migration
+                'thermoregulation': 0.6,
+                'feeding_efficiency': 0.8,
+                'thermocline_affinity': 0.8
+            },
+            'nurse_shark': {
+                'name': 'Nurse Shark',
+                'scientific': 'Ginglymostoma cirratum',
+                'optimal_temp': 26.0,      # Morrissey & Gruber 1993
+                'temp_tolerance': 3.0,
+                'temp_range': (22.0, 30.0),
+                'thermal_coeff': 0.04,
+                'trophic_level': 3.5,
+                'productivity_threshold': 0.5,
+                'frontal_affinity': 0.3,   # Low frontal affinity
+                'depth_preference': (0, 75),   # Shallow water preference
+                'coastal_affinity': 0.95,  # Extremely high coastal preference
+                'migration_tendency': 0.2, # Very low migratory
+                'prey_size_preference': 'benthic',  # Bottom dwellers
+                'hunting_strategy': 'suction_feeder',
+                'metabolic_rate': 'low',
+                'habitat_specificity': 'tropical_reef',
+                'prey_preferences': ['crustaceans', 'mollusks', 'small_fish'],
+                'diel_migration': 5,   # Minimal vertical movement
+                'thermoregulation': 0.2,
+                'feeding_efficiency': 0.7,
+                'thermocline_affinity': 0.1
+            },
+            'reef_shark': {
+                'name': 'Caribbean Reef Shark',
+                'scientific': 'Carcharhinus perezi',
+                'optimal_temp': 27.0,      # Bond et al. 2012
+                'temp_tolerance': 3.0,
+                'temp_range': (24.0, 30.0),
+                'thermal_coeff': 0.05,
+                'trophic_level': 4.0,
+                'productivity_threshold': 0.6,
+                'frontal_affinity': 0.4,   # Low frontal affinity
+                'depth_preference': (0, 100),  # Reef depths
+                'coastal_affinity': 0.9,   # High coastal preference
+                'migration_tendency': 0.3, # Low migratory
+                'prey_size_preference': 'reef_fish',
+                'hunting_strategy': 'reef_predator',
+                'metabolic_rate': 'moderate',
+                'habitat_specificity': 'coral_reef',
+                'prey_preferences': ['reef_fish', 'rays', 'crustaceans'],
+                'diel_migration': 15,
+                'thermoregulation': 0.3,
+                'feeding_efficiency': 0.8,
+                'thermocline_affinity': 0.2
+            },
+            'lemon_shark': {
+                'name': 'Lemon Shark',
+                'scientific': 'Negaprion brevirostris',
+                'optimal_temp': 26.0,      # Morrissey & Gruber 1993
+                'temp_tolerance': 4.0,
+                'temp_range': (20.0, 30.0),
+                'thermal_coeff': 0.06,
+                'trophic_level': 4.1,
+                'productivity_threshold': 0.6,
+                'frontal_affinity': 0.5,   # Moderate frontal affinity
+                'depth_preference': (0, 90),   # Shallow coastal
+                'coastal_affinity': 0.9,   # High coastal preference
+                'migration_tendency': 0.6, # Moderate migratory
+                'prey_size_preference': 'medium_fish',
+                'hunting_strategy': 'active_predator',
+                'metabolic_rate': 'moderate',
+                'habitat_specificity': 'mangrove_coastal',
+                'prey_preferences': ['bonefish', 'rays', 'crustaceans'],
+                'diel_migration': 25,
+                'thermoregulation': 0.4,
+                'feeding_efficiency': 0.8,
+                'thermocline_affinity': 0.3
+            },
+            'blacktip_shark': {
+                'name': 'Blacktip Shark',
+                'scientific': 'Carcharhinus limbatus',
+                'optimal_temp': 25.0,      # Heupel & Hueter 2002
+                'temp_tolerance': 4.0,
+                'temp_range': (20.0, 30.0),
+                'thermal_coeff': 0.06,
+                'trophic_level': 4.0,
+                'productivity_threshold': 0.6,
+                'frontal_affinity': 0.6,   # Moderate frontal affinity
+                'depth_preference': (0, 100),  # Shallow coastal
+                'coastal_affinity': 0.85,  # High coastal preference
+                'migration_tendency': 0.7, # High migratory
+                'prey_size_preference': 'schooling_fish',
+                'hunting_strategy': 'fast_pursuit',
+                'metabolic_rate': 'high',
+                'habitat_specificity': 'tropical_coastal',
+                'prey_preferences': ['sardines', 'herrings', 'anchovies'],
+                'diel_migration': 30,
+                'thermoregulation': 0.5,
+                'feeding_efficiency': 0.8,
+                'thermocline_affinity': 0.4
+            },
+            'sandbar_shark': {
+                'name': 'Sandbar Shark',
+                'scientific': 'Carcharhinus plumbeus',
+                'optimal_temp': 22.0,      # Grubbs et al. 2007
+                'temp_tolerance': 5.0,
+                'temp_range': (16.0, 28.0),
+                'thermal_coeff': 0.05,
+                'trophic_level': 4.0,
+                'productivity_threshold': 0.5,
+                'frontal_affinity': 0.4,   # Low frontal affinity
+                'depth_preference': (20, 280),  # Continental shelf
+                'coastal_affinity': 0.8,   # High coastal preference
+                'migration_tendency': 0.8, # High migratory
+                'prey_size_preference': 'bottom_fish',
+                'hunting_strategy': 'bottom_predator',
+                'metabolic_rate': 'moderate',
+                'habitat_specificity': 'continental_shelf',
+                'prey_preferences': ['bottom_fish', 'rays', 'crabs'],
+                'diel_migration': 40,
+                'thermoregulation': 0.4,
+                'feeding_efficiency': 0.7,
+                'thermocline_affinity': 0.3
+            },
+            'spinner_shark': {
+                'name': 'Spinner Shark',
+                'scientific': 'Carcharhinus brevipinna',
+                'optimal_temp': 24.0,      # Burgess & Branstetter 2009
+                'temp_tolerance': 4.0,
+                'temp_range': (19.0, 29.0),
+                'thermal_coeff': 0.06,
+                'trophic_level': 4.1,
+                'productivity_threshold': 0.7,
+                'frontal_affinity': 0.7,   # High frontal affinity
+                'depth_preference': (0, 100),  # Surface to moderate depth
+                'coastal_affinity': 0.7,   # Moderate coastal preference
+                'migration_tendency': 0.8, # High migratory
+                'prey_size_preference': 'schooling_fish',
+                'hunting_strategy': 'spinning_attack',
+                'metabolic_rate': 'high',
+                'habitat_specificity': 'warm_coastal',
+                'prey_preferences': ['sardines', 'herrings', 'rays'],
+                'diel_migration': 35,
+                'thermoregulation': 0.5,
+                'feeding_efficiency': 0.8,
+                'thermocline_affinity': 0.5
+            },
+            'dusky_shark': {
+                'name': 'Dusky Shark',
+                'scientific': 'Carcharhinus obscurus',
+                'optimal_temp': 20.0,      # Musick et al. 1993
+                'temp_tolerance': 6.0,
+                'temp_range': (15.0, 28.0),
+                'thermal_coeff': 0.05,
+                'trophic_level': 4.2,
+                'productivity_threshold': 0.6,
+                'frontal_affinity': 0.6,   # Moderate frontal affinity
+                'depth_preference': (0, 400),  # Wide depth range
+                'coastal_affinity': 0.6,   # Moderate coastal preference
+                'migration_tendency': 0.9, # Very high migratory
+                'prey_size_preference': 'large_fish',
+                'hunting_strategy': 'pursuit_predator',
+                'metabolic_rate': 'moderate',
+                'habitat_specificity': 'temperate_coastal',
+                'prey_preferences': ['bluefish', 'tuna', 'rays'],
+                'diel_migration': 50,
+                'thermoregulation': 0.5,
+                'feeding_efficiency': 0.8,
+                'thermocline_affinity': 0.6
+            },
+            'silky_shark': {
+                'name': 'Silky Shark',
+                'scientific': 'Carcharhinus falciformis',
+                'optimal_temp': 24.0,      # Bonfil et al. 2005
+                'temp_tolerance': 4.0,
+                'temp_range': (20.0, 28.0),
+                'thermal_coeff': 0.06,
+                'trophic_level': 4.3,
+                'productivity_threshold': 0.7,
+                'frontal_affinity': 0.8,   # High frontal affinity
+                'depth_preference': (0, 500),  # Pelagic, deep diving
+                'coastal_affinity': 0.3,   # Low coastal preference
+                'migration_tendency': 0.9, # Very high migratory
+                'prey_size_preference': 'pelagic_fish',
+                'hunting_strategy': 'pelagic_predator',
+                'metabolic_rate': 'high',
+                'habitat_specificity': 'tropical_pelagic',
+                'prey_preferences': ['tuna', 'squid', 'flying_fish'],
+                'diel_migration': 100,
+                'thermoregulation': 0.6,
+                'feeding_efficiency': 0.8,
+                'thermocline_affinity': 0.7
+            },
+            'porbeagle_shark': {
+                'name': 'Porbeagle Shark',
+                'scientific': 'Lamna nasus',
+                'optimal_temp': 12.0,      # Campana et al. 2010
+                'temp_tolerance': 6.0,
+                'temp_range': (5.0, 18.0),
+                'thermal_coeff': 0.08,
+                'trophic_level': 4.4,
+                'productivity_threshold': 0.8,
+                'frontal_affinity': 0.9,   # Very high frontal affinity
+                'depth_preference': (0, 700),  # Deep diving capability
+                'coastal_affinity': 0.4,   # Low coastal preference
+                'migration_tendency': 0.9, # Very high migratory
+                'prey_size_preference': 'fast_fish',
+                'hunting_strategy': 'endothermic_predator',
+                'metabolic_rate': 'very_high',
+                'habitat_specificity': 'cold_pelagic',
+                'prey_preferences': ['mackerel', 'herring', 'squid'],
+                'diel_migration': 150,
+                'thermoregulation': 0.8,  # Endothermic
+                'feeding_efficiency': 0.9,
+                'thermocline_affinity': 0.8
             }
         }
 
