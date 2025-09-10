@@ -45,8 +45,66 @@ st.markdown("""
         border-radius: 0.5rem;
         margin: 0.5rem 0;
     }
+
+    /* Fix dropdown text visibility */
     .stSelectbox > div > div {
-        background-color: #f0f8ff;
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    /* Fix dropdown options */
+    .stSelectbox > div > div > div {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    /* Fix dropdown menu */
+    div[data-baseweb="select"] > div {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    /* Fix dropdown text */
+    div[data-baseweb="select"] > div > div {
+        color: #000000 !important;
+    }
+
+    /* Fix dropdown options list */
+    ul[role="listbox"] {
+        background-color: #ffffff !important;
+    }
+
+    ul[role="listbox"] li {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    ul[role="listbox"] li:hover {
+        background-color: #e6f3ff !important;
+        color: #000000 !important;
+    }
+
+    /* Additional fixes for Streamlit selectbox */
+    .stSelectbox label {
+        color: #000000 !important;
+        font-weight: bold !important;
+    }
+
+    /* Force dark text in all selectbox elements */
+    .stSelectbox div[data-testid="stSelectbox"] > div > div {
+        color: #000000 !important;
+        background-color: #ffffff !important;
+    }
+
+    /* Fix for the actual dropdown text */
+    .stSelectbox div[role="button"] {
+        color: #000000 !important;
+        background-color: #ffffff !important;
+    }
+
+    /* Ensure dropdown arrow is visible */
+    .stSelectbox svg {
+        color: #000000 !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -178,10 +236,17 @@ def main():
     # Sidebar for controls
     st.sidebar.header("🎛️ Analysis Controls")
     
-    # Species selection
+    # Species selection with better visibility
     species_data = load_species_data()
     species_options = {f"{info['emoji']} {info['name']}": key for key, info in species_data.items()}
-    selected_species_display = st.sidebar.selectbox("Select Shark Species", list(species_options.keys()))
+
+    # Add custom styling for the selectbox
+    st.sidebar.markdown("**🦈 Select Shark Species:**")
+    selected_species_display = st.sidebar.selectbox(
+        "Choose species",
+        list(species_options.keys()),
+        label_visibility="collapsed"
+    )
     selected_species = species_options[selected_species_display]
     species_info = species_data[selected_species]
     
