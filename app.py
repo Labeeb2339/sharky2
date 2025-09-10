@@ -116,19 +116,23 @@ def load_species_data():
             'name': 'Great White Shark',
             'scientific': 'Carcharodon carcharias',
             'optimal_temp': 18,
-            'temp_range': '14-22°C',
+            'temp_range': '12-24°C',
             'depth_range': '0-250m',
-            'habitat': 'Coastal and offshore waters',
-            'emoji': '🦈'
+            'habitat': 'Temperate coastal waters',
+            'emoji': '🦈',
+            'hunting': 'Ambush predator',
+            'migration': 'High'
         },
         'tiger_shark': {
             'name': 'Tiger Shark',
             'scientific': 'Galeocerdo cuvier',
             'optimal_temp': 25,
-            'temp_range': '21-29°C',
+            'temp_range': '20-30°C',
             'depth_range': '0-350m',
-            'habitat': 'Tropical and subtropical waters',
-            'emoji': '🐅'
+            'habitat': 'Tropical coastal waters',
+            'emoji': '🐅',
+            'hunting': 'Generalist predator',
+            'migration': 'Moderate'
         },
         'bull_shark': {
             'name': 'Bull Shark',
@@ -136,8 +140,43 @@ def load_species_data():
             'optimal_temp': 27,
             'temp_range': '22-32°C',
             'depth_range': '0-150m',
-            'habitat': 'Coastal waters and rivers',
-            'emoji': '🐂'
+            'habitat': 'Estuarine and coastal waters',
+            'emoji': '🐂',
+            'hunting': 'Opportunistic predator',
+            'migration': 'Low'
+        },
+        'hammerhead': {
+            'name': 'Great Hammerhead Shark',
+            'scientific': 'Sphyrna mokarran',
+            'optimal_temp': 24,
+            'temp_range': '21-27°C',
+            'depth_range': '0-300m',
+            'habitat': 'Tropical pelagic waters',
+            'emoji': '🔨',
+            'hunting': 'Ray specialist',
+            'migration': 'High'
+        },
+        'mako': {
+            'name': 'Shortfin Mako Shark',
+            'scientific': 'Isurus oxyrinchus',
+            'optimal_temp': 20,
+            'temp_range': '15-25°C',
+            'depth_range': '0-500m',
+            'habitat': 'Open ocean (pelagic)',
+            'emoji': '⚡',
+            'hunting': 'High-speed predator',
+            'migration': 'Very High'
+        },
+        'blue_shark': {
+            'name': 'Blue Shark',
+            'scientific': 'Prionace glauca',
+            'optimal_temp': 16,
+            'temp_range': '10-22°C',
+            'depth_range': '0-400m',
+            'habitat': 'Open ocean',
+            'emoji': '🌊',
+            'hunting': 'Opportunistic pelagic',
+            'migration': 'Extremely High'
         }
     }
 
@@ -397,6 +436,8 @@ def main():
         <p><strong>Temp Range:</strong> {species_info['temp_range']}</p>
         <p><strong>Depth Range:</strong> {species_info['depth_range']}</p>
         <p><strong>Habitat:</strong> {species_info['habitat']}</p>
+        <p><strong>Hunting Style:</strong> {species_info['hunting']}</p>
+        <p><strong>Migration:</strong> {species_info['migration']}</p>
     </div>
     """, unsafe_allow_html=True)
     
@@ -505,8 +546,11 @@ def main():
         
         ### 🚀 Features:
         - **Real-time NASA satellite data** (MODIS, VIIRS)
-        - **Species-specific models** for Great White, Tiger, and Bull sharks
+        - **6 shark species models** (Great White, Tiger, Bull, Hammerhead, Mako, Blue)
+        - **Bathymetry integration** (GEBCO/ETOPO depth data)
+        - **Species differentiation** based on ecological parameters
         - **Interactive habitat maps** with zoom and pan
+        - **Temporal analysis** capabilities
         - **Statistical analysis** and quality metrics
         - **Professional reports** for research and conservation
         
