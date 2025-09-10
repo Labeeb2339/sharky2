@@ -271,6 +271,7 @@ def main():
     st.markdown('<h1 class="main-header">🦈 Shark Habitat Prediction System</h1>', unsafe_allow_html=True)
     st.markdown("**Powered by NASA Satellite Data & Advanced Marine Ecology Models**")
     st.info("🔄 **Live Demo**: This app auto-updates when code changes are pushed to GitHub!")
+    st.success("🦈 **ALL 6 SHARK SPECIES NOW AVAILABLE** - Updated with enhanced framework!")
     
     # Sidebar for controls
     st.sidebar.header("🎛️ Analysis Controls")
