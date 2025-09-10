@@ -497,9 +497,11 @@ def main():
     else:
         # Welcome screen
         st.markdown("""
+        st.success("🛰️ **FULLY AUTOMATIC NASA DATA INTEGRATION** - Real satellite data with maximum accuracy!")
+
         ## 🌊 Welcome to the Shark Habitat Prediction System
-        
-        This advanced system uses **NASA satellite data** and **marine ecology models** to predict shark habitat suitability.
+
+        This advanced system uses **real NASA satellite data** and **competition-grade mathematical models** to predict shark habitat suitability with maximum accuracy.
         
         ### 🚀 Features:
         - **Real-time NASA satellite data** (MODIS, VIIRS)
