@@ -110,7 +110,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 def load_species_data():
-    """Load species information for the UI"""
+    """Load species information for the UI - All 18 species"""
     return {
         'great_white': {
             'name': 'Great White Shark',
@@ -177,6 +177,138 @@ def load_species_data():
             'emoji': '🌊',
             'hunting': 'Opportunistic pelagic',
             'migration': 'Extremely High'
+        },
+        'whale_shark': {
+            'name': 'Whale Shark',
+            'scientific': 'Rhincodon typus',
+            'optimal_temp': 26,
+            'temp_range': '21-30°C',
+            'depth_range': '0-200m',
+            'habitat': 'Tropical surface waters',
+            'emoji': '🐋',
+            'hunting': 'Filter feeder',
+            'migration': 'High'
+        },
+        'basking_shark': {
+            'name': 'Basking Shark',
+            'scientific': 'Cetorhinus maximus',
+            'optimal_temp': 14,
+            'temp_range': '8-20°C',
+            'depth_range': '0-200m',
+            'habitat': 'Temperate surface waters',
+            'emoji': '🦈',
+            'hunting': 'Filter feeder',
+            'migration': 'Very High'
+        },
+        'thresher_shark': {
+            'name': 'Common Thresher Shark',
+            'scientific': 'Alopias vulpinus',
+            'optimal_temp': 19,
+            'temp_range': '14-24°C',
+            'depth_range': '0-500m',
+            'habitat': 'Temperate pelagic waters',
+            'emoji': '🌊',
+            'hunting': 'Tail stunning',
+            'migration': 'High'
+        },
+        'nurse_shark': {
+            'name': 'Nurse Shark',
+            'scientific': 'Ginglymostoma cirratum',
+            'optimal_temp': 26,
+            'temp_range': '22-30°C',
+            'depth_range': '0-75m',
+            'habitat': 'Tropical reef waters',
+            'emoji': '😴',
+            'hunting': 'Suction feeder',
+            'migration': 'Very Low'
+        },
+        'reef_shark': {
+            'name': 'Caribbean Reef Shark',
+            'scientific': 'Carcharhinus perezi',
+            'optimal_temp': 27,
+            'temp_range': '24-30°C',
+            'depth_range': '0-100m',
+            'habitat': 'Coral reef waters',
+            'emoji': '🏝️',
+            'hunting': 'Reef predator',
+            'migration': 'Low'
+        },
+        'lemon_shark': {
+            'name': 'Lemon Shark',
+            'scientific': 'Negaprion brevirostris',
+            'optimal_temp': 26,
+            'temp_range': '20-30°C',
+            'depth_range': '0-90m',
+            'habitat': 'Mangrove coastal waters',
+            'emoji': '🍋',
+            'hunting': 'Active predator',
+            'migration': 'Moderate'
+        },
+        'blacktip_shark': {
+            'name': 'Blacktip Shark',
+            'scientific': 'Carcharhinus limbatus',
+            'optimal_temp': 25,
+            'temp_range': '20-30°C',
+            'depth_range': '0-100m',
+            'habitat': 'Shallow coastal waters',
+            'emoji': '⚫',
+            'hunting': 'Fast pursuit',
+            'migration': 'High'
+        },
+        'sandbar_shark': {
+            'name': 'Sandbar Shark',
+            'scientific': 'Carcharhinus plumbeus',
+            'optimal_temp': 22,
+            'temp_range': '16-28°C',
+            'depth_range': '20-280m',
+            'habitat': 'Continental shelf',
+            'emoji': '🏖️',
+            'hunting': 'Bottom predator',
+            'migration': 'High'
+        },
+        'spinner_shark': {
+            'name': 'Spinner Shark',
+            'scientific': 'Carcharhinus brevipinna',
+            'optimal_temp': 24,
+            'temp_range': '19-29°C',
+            'depth_range': '0-100m',
+            'habitat': 'Warm coastal waters',
+            'emoji': '🌀',
+            'hunting': 'Spinning attack',
+            'migration': 'High'
+        },
+        'dusky_shark': {
+            'name': 'Dusky Shark',
+            'scientific': 'Carcharhinus obscurus',
+            'optimal_temp': 20,
+            'temp_range': '15-28°C',
+            'depth_range': '0-400m',
+            'habitat': 'Temperate coastal waters',
+            'emoji': '🌫️',
+            'hunting': 'Pursuit predator',
+            'migration': 'Very High'
+        },
+        'silky_shark': {
+            'name': 'Silky Shark',
+            'scientific': 'Carcharhinus falciformis',
+            'optimal_temp': 24,
+            'temp_range': '20-28°C',
+            'depth_range': '0-500m',
+            'habitat': 'Tropical pelagic waters',
+            'emoji': '✨',
+            'hunting': 'Pelagic predator',
+            'migration': 'Very High'
+        },
+        'porbeagle_shark': {
+            'name': 'Porbeagle Shark',
+            'scientific': 'Lamna nasus',
+            'optimal_temp': 12,
+            'temp_range': '5-18°C',
+            'depth_range': '0-700m',
+            'habitat': 'Cold pelagic waters',
+            'emoji': '❄️',
+            'hunting': 'Endothermic predator',
+            'migration': 'Very High'
         }
     }
 
@@ -681,13 +813,97 @@ Contact: Advanced Marine Ecology Research
                         - 🦑 **Squid and small fish** (not picky eaters)
                         - 🧭 **Follow ocean currents** like highways
                         """)
+                    elif species_key == 'whale_shark':
+                        st.markdown("""
+                        - 🌴 **Warm tropical water** (like Maldives)
+                        - 🦐 **Plankton and small fish** (gentle giant!)
+                        - 🌊 **Surface waters** where plankton blooms
+                        - 📏 **Largest fish in the ocean** (up to 40 feet!)
+                        """)
+                    elif species_key == 'basking_shark':
+                        st.markdown("""
+                        - ❄️ **Cool temperate water** (like Scotland)
+                        - 🦐 **Zooplankton** (filter feeder like whales)
+                        - 🌊 **Surface waters** following food blooms
+                        - 🚗 **Second largest fish** (up to 26 feet!)
+                        """)
+                    elif species_key == 'thresher_shark':
+                        st.markdown("""
+                        - 🌊 **Temperate open ocean** (moderate temperatures)
+                        - 🐟 **Schooling fish** like sardines and anchovies
+                        - 🎯 **Uses long tail** to stun prey (unique hunting!)
+                        - 🏊 **Deep diving** capability (up to 500m)
+                        """)
+                    elif species_key == 'nurse_shark':
+                        st.markdown("""
+                        - 🏝️ **Warm shallow reefs** (like Caribbean)
+                        - 🦀 **Bottom creatures** like crabs and small fish
+                        - 😴 **Very docile** (safe to swim near)
+                        - 🏠 **Stays close to reefs** (not migratory)
+                        """)
+                    elif species_key == 'reef_shark':
+                        st.markdown("""
+                        - 🏝️ **Coral reefs** (tropical paradise waters)
+                        - 🐠 **Reef fish and rays** (reef ecosystem predator)
+                        - 🏠 **Territorial** around specific reefs
+                        - 🤿 **Popular with divers** (beautiful to observe)
+                        """)
+                    elif species_key == 'lemon_shark':
+                        st.markdown("""
+                        - 🌴 **Warm mangrove areas** (like Bahamas)
+                        - 🐟 **Bonefish and rays** (shallow water prey)
+                        - 🌱 **Uses mangroves** as nurseries for babies
+                        - 🟡 **Yellow coloration** (perfect camouflage)
+                        """)
+                    elif species_key == 'blacktip_shark':
+                        st.markdown("""
+                        - 🏖️ **Shallow coastal waters** (near beaches)
+                        - 🐟 **Schooling fish** (sardines, herrings)
+                        - 🦘 **Famous for jumping** out of the water
+                        - ⚫ **Black-tipped fins** (easy to identify)
+                        """)
+                    elif species_key == 'sandbar_shark':
+                        st.markdown("""
+                        - 🏖️ **Continental shelf** (moderate depths)
+                        - 🐟 **Bottom fish and rays** (seafloor hunters)
+                        - 🗺️ **Long migrations** along coastlines
+                        - 📏 **Large and robust** (up to 8 feet)
+                        """)
+                    elif species_key == 'spinner_shark':
+                        st.markdown("""
+                        - 🌴 **Warm coastal waters** (tropical/subtropical)
+                        - 🐟 **Schooling fish** (sardines, herrings)
+                        - 🌀 **Spinning attacks** (leaps and spins!)
+                        - 🏊 **Fast swimmer** (high-energy hunter)
+                        """)
+                    elif species_key == 'dusky_shark':
+                        st.markdown("""
+                        - 🌊 **Temperate coastal waters** (wide range)
+                        - 🐟 **Large fish** (bluefish, tuna)
+                        - 🗺️ **Epic migrations** (thousands of miles)
+                        - 📏 **Large size** (up to 12 feet)
+                        """)
+                    elif species_key == 'silky_shark':
+                        st.markdown("""
+                        - 🌴 **Tropical open ocean** (far from shore)
+                        - 🐟 **Tuna and squid** (pelagic prey)
+                        - ✨ **Silky smooth skin** (very distinctive)
+                        - 🌊 **Deep diving** (follows prey vertically)
+                        """)
+                    elif species_key == 'porbeagle_shark':
+                        st.markdown("""
+                        - ❄️ **Cold northern waters** (like North Atlantic)
+                        - 🐟 **Mackerel and herring** (cold water fish)
+                        - 🔥 **Warm-blooded** (endothermic like tuna)
+                        - ⚡ **Very fast swimmer** (built for speed)
+                        """)
                     else:
-                        # For new species, show general info
+                        # Fallback for any missing species
                         st.markdown(f"""
-                        - 🌡️ **Temperature**: {results.get('optimal_temp', 'Variable')}°C preferred
-                        - 🏔️ **Depth**: {results.get('depth_range', 'Variable')} meters
-                        - 🍽️ **Food**: {results.get('prey_type', 'Various prey species')}
-                        - 🏠 **Habitat**: {results.get('habitat_type', 'Species-specific preferences')}
+                        - 🌡️ **Temperature**: {species_info.get('temp_range', 'Variable')}
+                        - 🏔️ **Depth**: {species_info.get('depth_range', 'Variable')}
+                        - 🍽️ **Hunting**: {species_info.get('hunting', 'Species-specific')}
+                        - 🏠 **Habitat**: {species_info.get('habitat', 'Various environments')}
                         """)
 
                     st.markdown("""
@@ -731,6 +947,30 @@ Contact: Advanced Marine Ecology Research
                         st.info("⚡ Mako Sharks can swim up to 45 mph - faster than most boats!")
                     elif species_key == 'blue_shark':
                         st.info("🌍 Blue Sharks migrate up to 5,500 miles - that's like swimming across the Atlantic!")
+                    elif species_key == 'whale_shark':
+                        st.info("🐋 Whale Sharks are the largest fish in the ocean but only eat tiny plankton!")
+                    elif species_key == 'basking_shark':
+                        st.info("🦈 Basking Sharks can filter 2,000 tons of water per hour through their gills!")
+                    elif species_key == 'thresher_shark':
+                        st.info("🎯 Thresher Sharks use their tail like a whip to stun entire schools of fish!")
+                    elif species_key == 'nurse_shark':
+                        st.info("😴 Nurse Sharks are so docile you can literally pet them (but don't try this at home)!")
+                    elif species_key == 'reef_shark':
+                        st.info("🏝️ Caribbean Reef Sharks are like the neighborhood watch of coral reefs!")
+                    elif species_key == 'lemon_shark':
+                        st.info("🍋 Lemon Sharks return to the exact same mangrove where they were born to have babies!")
+                    elif species_key == 'blacktip_shark':
+                        st.info("🦘 Blacktip Sharks can jump 6 feet out of the water while hunting!")
+                    elif species_key == 'sandbar_shark':
+                        st.info("🗺️ Sandbar Sharks migrate over 2,000 miles along the US East Coast every year!")
+                    elif species_key == 'spinner_shark':
+                        st.info("🌀 Spinner Sharks can spin up to 3 times in the air during their attacks!")
+                    elif species_key == 'dusky_shark':
+                        st.info("📏 Dusky Sharks can live over 40 years and don't have babies until they're 20!")
+                    elif species_key == 'silky_shark':
+                        st.info("✨ Silky Sharks have the smoothest skin of any shark - like touching silk!")
+                    elif species_key == 'porbeagle_shark':
+                        st.info("🔥 Porbeagle Sharks are warm-blooded and can heat their bodies 20°F above water temperature!")
                     else:
                         st.info("🦈 Sharks have been around for over 400 million years - they're older than trees!")
                 
