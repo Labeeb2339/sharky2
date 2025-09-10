@@ -456,9 +456,16 @@ class AutomaticNASAFramework:
             }
         }
 
-        # Set species
-        self.current_species = species
-        self.shark_params = self.shark_species_params[self.current_species]
+        # Set species with validation
+        if species in self.shark_species_params:
+            self.current_species = species
+            self.shark_params = self.shark_species_params[self.current_species]
+            print(f"🦈 Species set to: {self.shark_params['name']} ({self.shark_params['scientific']})")
+        else:
+            print(f"❌ Unknown species '{species}', defaulting to 'great_white'")
+            print(f"Available species: {list(self.shark_species_params.keys())}")
+            self.current_species = 'great_white'
+            self.shark_params = self.shark_species_params[self.current_species]
 
         # Bathymetry data source (GEBCO/ETOPO)
         self.bathymetry_api = 'https://www.gebco.net/data_and_products/gebco_web_services/web_map_service/'
@@ -484,7 +491,12 @@ class AutomaticNASAFramework:
             return True
         else:
             print(f"❌ Unknown species: {species_key}")
+            print(f"Available species: {list(self.shark_species_params.keys())}")
             return False
+
+    def get_available_species(self):
+        """Get list of available species"""
+        return list(self.shark_species_params.keys())
 
     @property
     def species_params(self):

@@ -577,8 +577,10 @@ def main():
     if run_analysis:
         with st.spinner(f"🔄 Analyzing {species_info['name']} habitat..."):
             try:
-                # Initialize NASA framework
+                # Initialize NASA framework with error handling
+                st.info(f"🔄 Initializing framework for {selected_species}...")
                 framework = AutomaticNASAFramework(species=selected_species)
+                st.success(f"✅ Framework initialized for {framework.shark_params['name']}")
 
                 # Define study area
                 study_area = {
@@ -976,7 +978,28 @@ Contact: Advanced Marine Ecology Research
                 
             except Exception as e:
                 st.error(f"❌ Analysis failed: {str(e)}")
-                st.info("💡 Tip: Make sure all dependencies are installed and try a smaller study area.")
+                st.error(f"🔍 Error details: {type(e).__name__}")
+
+                # Show debugging info
+                with st.expander("🔧 Debug Information"):
+                    st.write(f"Selected species: {selected_species}")
+                    st.write(f"Species info: {species_info}")
+
+                    # Try to show available species
+                    try:
+                        from automatic_nasa_framework import AutomaticNASAFramework
+                        temp_framework = AutomaticNASAFramework()
+                        available_species = temp_framework.get_available_species()
+                        st.write(f"Available framework species: {available_species}")
+                        st.write(f"Species exists in framework: {selected_species in available_species}")
+                    except Exception as debug_e:
+                        st.write(f"Debug error: {debug_e}")
+
+                st.info("💡 Tips:")
+                st.info("- Make sure all dependencies are installed")
+                st.info("- Try a smaller study area")
+                st.info("- Check your internet connection for NASA data access")
+                st.info("- Try a different species")
     
     else:
         # Welcome screen
