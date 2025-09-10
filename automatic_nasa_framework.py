@@ -205,6 +205,11 @@ class AutomaticNASAFramework:
             print(f"❌ Unknown species: {species_key}")
             return False
 
+    @property
+    def species_params(self):
+        """Alias for shark_species_params for compatibility"""
+        return self.shark_species_params
+
     def get_available_species(self):
         """Get list of available shark species"""
         return {key: params['name'] for key, params in self.shark_species_params.items()}
@@ -2622,6 +2627,113 @@ class AutomaticNASAFramework:
             'individual_scores': validation_scores,
             'reliability': reliability
         }
+
+    def analyze_shark_habitat(self, species, bounds, date_range):
+        """
+        Analyze shark habitat for specified species, region, and time period
+
+        Args:
+            species (str): Shark species ('great_white', 'tiger', 'bull', 'hammerhead', 'mako', 'blue')
+            bounds (list): Geographic bounds [west, south, east, north] in decimal degrees
+            date_range (tuple): Date range ('start_date', 'end_date') in 'YYYY-MM-DD' format
+
+        Returns:
+            dict: Complete analysis results with HSI grid, statistics, and metadata
+        """
+        print(f"\n🦈 ANALYZING {species.upper().replace('_', ' ')} SHARK HABITAT")
+        print("=" * 60)
+
+        # Set species for analysis
+        original_species = self.species
+        self.species = species
+
+        try:
+            # Step 1: Download environmental data
+            study_area = {
+                'name': f'{species.replace("_", " ").title()} Shark Habitat Analysis',
+                'bounds': bounds,
+                'description': f'Habitat analysis for {species.replace("_", " ")} shark'
+            }
+
+            environmental_data, real_data_info = self.auto_download_nasa_data(study_area, date_range)
+
+            # Step 2: Perform habitat prediction
+            results = self.advanced_habitat_prediction(environmental_data)
+
+            # Step 3: Add metadata
+            results['analysis_metadata'] = {
+                'species': species,
+                'bounds': bounds,
+                'date_range': date_range,
+                'grid_size': len(results['hsi']),
+                'data_sources': real_data_info,
+                'analysis_timestamp': str(pd.Timestamp.now())
+            }
+
+            return results
+
+        finally:
+            # Restore original species
+            self.species = original_species
+
+    def _calculate_hsi(self, temp_suit, prod_suit, frontal_suit, depth_suit, species=None):
+        """
+        Calculate Habitat Suitability Index using weighted geometric mean
+
+        Args:
+            temp_suit (numpy.ndarray): Temperature suitability grid (0-1)
+            prod_suit (numpy.ndarray): Productivity suitability grid (0-1)
+            frontal_suit (numpy.ndarray): Frontal zone suitability grid (0-1)
+            depth_suit (numpy.ndarray): Depth suitability grid (0-1)
+            species (str): Shark species for species-specific weights
+
+        Returns:
+            numpy.ndarray: HSI values (0-1)
+        """
+        if species is None:
+            species = self.species
+
+        # Species-specific weights
+        weights = self.shark_species_params[species].get('hsi_weights', {
+            'temperature': 0.30,
+            'productivity': 0.25,
+            'frontal': 0.25,
+            'depth': 0.20
+        })
+
+        # Ensure all inputs have same shape
+        shape = temp_suit.shape
+        temp_suit = np.resize(temp_suit, shape)
+        prod_suit = np.resize(prod_suit, shape)
+        frontal_suit = np.resize(frontal_suit, shape)
+        depth_suit = np.resize(depth_suit, shape)
+
+        # Calculate weighted geometric mean
+        # HSI = (T^w1 × P^w2 × F^w3 × D^w4)^(1/Σw)
+        w_temp = weights['temperature']
+        w_prod = weights['productivity']
+        w_frontal = weights['frontal']
+        w_depth = weights['depth']
+
+        # Avoid zero values by adding small epsilon
+        epsilon = 1e-10
+        temp_suit = np.maximum(temp_suit, epsilon)
+        prod_suit = np.maximum(prod_suit, epsilon)
+        frontal_suit = np.maximum(frontal_suit, epsilon)
+        depth_suit = np.maximum(depth_suit, epsilon)
+
+        # Calculate HSI
+        hsi = (
+            (temp_suit ** w_temp) *
+            (prod_suit ** w_prod) *
+            (frontal_suit ** w_frontal) *
+            (depth_suit ** w_depth)
+        ) ** (1.0 / (w_temp + w_prod + w_frontal + w_depth))
+
+        # Ensure HSI is in valid range [0, 1]
+        hsi = np.clip(hsi, 0.0, 1.0)
+
+        return hsi
 
 def run_automatic_nasa_framework():
     """Run the complete automatic NASA framework"""

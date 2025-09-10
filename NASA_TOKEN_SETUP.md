@@ -1,75 +1,89 @@
-# 🔑 NASA Token Setup Guide
+# 🔑 Get Your Free NASA Satellite Data Access
 
-## 🎯 Overview
-Complete guide for setting up and managing NASA Earthdata JWT tokens for the shark habitat prediction framework.
+## 🛰️ Why You Need a NASA Account
+
+SharkTracker Pro uses real NASA satellite data to analyze shark habitats. To access this amazing data, you need a free NASA Earthdata account. Don't worry - it's completely free and takes just 5 minutes!
 
 ---
 
-## 🚀 Quick Setup (5 Minutes)
+## 🚀 Super Easy Setup (5 Minutes)
 
-### Step 1: Create NASA Earthdata Account
-1. Go to: https://urs.earthdata.nasa.gov/users/new
-2. Fill out the registration form
-3. Verify your email address
-4. Login to your new account
+### Step 1: Create Your Free NASA Account
+1. **Visit NASA Earthdata**: https://urs.earthdata.nasa.gov/users/new
+2. **Fill out the form** with your information:
+   - Username (choose something memorable)
+   - Email address
+   - Password
+   - Basic profile information
+3. **Click "Register"**
+4. **Check your email** and click the verification link
+5. **You now have access to NASA's satellite data!** 🎉
 
-### Step 2: Generate JWT Token
-1. Login to NASA Earthdata: https://urs.earthdata.nasa.gov/
-2. Go to "Applications" → "Authorized Apps"
-3. Click "Generate Token"
-4. Copy the JWT token (starts with `eyJ...`)
+### Step 2: Get Your Access Token
+1. **Login** to NASA Earthdata: https://urs.earthdata.nasa.gov/
+2. **Click your username** in the top right corner
+3. **Select "Profile"** from the dropdown menu
+4. **Go to "Applications"** tab
+5. **Click "Generate Token"**
+6. **Copy the long token** (starts with `eyJ...`)
+   - This is your personal key to NASA's satellite data!
 
-### Step 3: Update Framework
-```python
-# In automatic_nasa_framework.py, line 19:
-self.jwt_token = "eyJ0eXAiOiJKV1QiLCJvcmlnaW4iOiJFYXJ0aGRhdGEgTG9naW4i..."
+### Step 3: Add Token to SharkTracker Pro
+**Option A: Easy Method (Recommended)**
+1. Open the file `automatic_nasa_framework.py`
+2. Find line 19 (near the top)
+3. Replace `"YOUR_NASA_JWT_TOKEN_HERE"` with your token
+4. Save the file
+
+**Option B: For Advanced Users**
+Set an environment variable:
+```bash
+export NASA_JWT_TOKEN="your_token_here"
 ```
 
-### Step 4: Test Setup
+### Step 4: Test Your Setup
 ```bash
+# Run SharkTracker Pro
 python automatic_nasa_framework.py
+
+# You should see: "✅ Fresh NASA JWT token loaded"
 ```
 
 ---
 
-## 🔍 Token Management
+## ✅ You're All Set!
 
-### Check Token Status
-```python
-import jwt
-import datetime
+**Congratulations!** You now have:
+- 🛰️ **Free access** to NASA's satellite data
+- 🔑 **Personal token** for SharkTracker Pro
+- 🦈 **Ready to analyze** shark habitats worldwide
 
-token = "YOUR_JWT_TOKEN_HERE"
+---
 
-# Decode token (no signature verification needed for info)
-payload = jwt.decode(token, options={'verify_signature': False})
+## 🔄 When Your Token Expires (Every 2-3 Months)
 
-print(f"User: {payload.get('uid')}")
-print(f"Issued: {datetime.datetime.fromtimestamp(payload.get('iat'))}")
-print(f"Expires: {datetime.datetime.fromtimestamp(payload.get('exp'))}")
+Don't worry - tokens expire for security. Here's how to get a new one:
 
-# Check if expired
-now = datetime.datetime.now().timestamp()
-if payload.get('exp') < now:
-    print("❌ Token EXPIRED - Need to refresh")
-else:
-    days_left = (payload.get('exp') - now) / (24 * 3600)
-    print(f"✅ Token valid for {days_left:.1f} more days")
+### 🚨 How to Know Your Token Expired
+You'll see this error message:
+```
+❌ Token EXPIRED - Need to refresh
+❌ HTTP 401 Unauthorized
 ```
 
-### Quick Token Check Script
-```bash
-python -c "
-import jwt
-import datetime
-token = 'YOUR_TOKEN_HERE'
-payload = jwt.decode(token, options={'verify_signature': False})
-exp = datetime.datetime.fromtimestamp(payload['exp'])
-now = datetime.datetime.now()
-print(f'Token expires: {exp}')
-print(f'Status: {'EXPIRED' if exp < now else 'VALID'}')
-"
-```
+### 🔄 Getting a New Token (2 Minutes)
+1. **Go back to NASA Earthdata**: https://urs.earthdata.nasa.gov/
+2. **Login** with your existing account
+3. **Go to Profile → Applications**
+4. **Click "Generate Token"** (this creates a new one)
+5. **Copy the new token**
+6. **Replace the old token** in `automatic_nasa_framework.py` (line 19)
+7. **You're ready to go again!** 🎉
+
+### 📅 Pro Tip: Set a Reminder
+- Tokens typically last **60-90 days**
+- Set a calendar reminder for **2 months** from now
+- Title: "Refresh NASA token for SharkTracker Pro"
 
 ---
 
