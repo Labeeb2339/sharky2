@@ -647,8 +647,18 @@ def main():
             try:
                 # Initialize NASA framework with error handling
                 st.info(f"🔄 Initializing framework for {selected_species}...")
-                framework = AutomaticNASAFramework(species=selected_species)
-                st.success(f"✅ Framework initialized for {framework.shark_params['name']}")
+
+                # Import and initialize framework
+                try:
+                    framework = AutomaticNASAFramework(species=selected_species)
+                    st.success(f"✅ Framework initialized for {framework.shark_params['name']}")
+                except Exception as init_error:
+                    st.error(f"❌ Framework initialization failed: {init_error}")
+                    # Try with default species as fallback
+                    st.info("🔄 Trying with default species...")
+                    framework = AutomaticNASAFramework()
+                    framework.set_species(selected_species)
+                    st.success(f"✅ Framework initialized for {framework.shark_params['name']}")
 
                 # Define study area
                 study_area = {
@@ -1109,7 +1119,6 @@ Contact: Advanced Marine Ecology Research
 
                     # Try to show available species
                     try:
-                        from automatic_nasa_framework import AutomaticNASAFramework
                         temp_framework = AutomaticNASAFramework()
                         available_species = temp_framework.get_available_species()
                         st.write(f"Available framework species: {available_species}")
